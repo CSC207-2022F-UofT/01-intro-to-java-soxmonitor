@@ -144,11 +144,11 @@ public class Basics {
          */
         StringBuilder ret = new StringBuilder();
 
-        String[] result = to_split.split(" ");
+        String[] words = to_split.split(" ");
 
-        ret.append(result[0].charAt(0) + result[1].charAt(0)
-                + result[2].charAt(0) + result[3].charAt(0)
-                + result[4].charAt(0) + result[5].charAt(0) + result[6].charAt(0));
+        for (String word : words) {
+            ret.append(word.charAt(0));
+        }
 
         return ret.toString();
     }
@@ -176,8 +176,14 @@ public class Basics {
          *                You can index into arrays as we do in Python
          *                (e.g. arr[i] gives you the item at index i).
          */
-        for(int i = 0; i < arr.length; i++){
-            current_sum = current_sum + arr[i];
+        int length = arr.length;
+
+        if (length == 0 || length == 1){
+            return 0;
+        } else{
+            for (int i = 1; i < length; i += 2){
+                current_sum += arr[i];
+            }
         }
 
         return current_sum;
